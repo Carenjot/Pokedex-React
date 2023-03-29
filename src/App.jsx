@@ -3,6 +3,9 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import PokemonCard from './components/PokemonCard'
+import NavBar from './components/NavBar'
+
+
 const pokemonList = [
   {
       name: "bulbasaur",
@@ -40,14 +43,11 @@ function App() {
       setIndex( index + 1);
     }
   }
-
   return (
     <div className="App">
       <PokemonCard name={pokemon.name} imgSrc={pokemon.imgSrc}/>
-      <button onClick={previousPokemon}>Précédent</button>
-      <button onClick={nextPokemon}>Suivant</button>
+      <NavBar previousPokemon={previousPokemon} nextPokemon={nextPokemon}/>
     </div>
-    
   )
 }
 
