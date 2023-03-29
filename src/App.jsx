@@ -25,28 +25,23 @@ const pokemonList = [
     },
     {
       name: "mew",
-    },
+    }
   ];
 
 
 
 function App() {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(0);
   let pokemon = pokemonList[index];
-  const previousPokemon = () => {
-    if(index>0){
-      setIndex( index - 1);
-    }
-  }
-  const nextPokemon = () => {
-    if(index<pokemonList.length-1){
-      setIndex( index + 1);
-    }
+  const toPokemon = (newindex) => {
+    setIndex(newindex);
   }
   return (
     <div className="App">
       <PokemonCard name={pokemon.name} imgSrc={pokemon.imgSrc}/>
-      <NavBar previousPokemon={previousPokemon} nextPokemon={nextPokemon}/>
+      {pokemonList.map((pokemon, number) => (
+          <NavBar toPokemon={() => toPokemon(number)} key={number} name={pokemon.name}/>
+        ))}
     </div>
   )
 }

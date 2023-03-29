@@ -1,6 +1,6 @@
 function NavBar(props) {
-    return (<nav><button onClick={props.previousPokemon}>Précédent</button>
-    <button onClick={props.nextPokemon}>Suivant</button></nav>
+    return (
+    <button onClick={props.toPokemon}>{props.name}</button>
     );
 };
 
